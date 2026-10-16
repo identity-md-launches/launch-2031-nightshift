@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "Nightshift",
+    "name": "NIGHTSHIFT",
+    "symbol": "SHIFT",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8000,
+    "initialMarketCapWei": "4000000000000000000000",
+    "remainderTo": "0x18e0a43cb0236c3e2e6f6f229fc2ca36299a4636"
+  },
+  "notes": "Nightshift (src/Nightshift.sol) is a fixed-supply ERC-20 built on vendored OpenZeppelin Contracts v5.1.0. Its constructor takes no arguments and mints the whole supply of 1,000,000,000 SHIFT (1000000000000000000000000000 minor units, 18 decimals) once to msg.sender, which under ProjectFactory.launchCustom is the factory. There is no owner, no mint or burn entry point, no pause, blacklist, fee, tax, proxy or upgrade path, and no transfer restriction: every transfer and transferFrom delivers exactly the requested amount, so the factory's transfer of the swarm share to the MerkleDistributor, the single-sided pool seed through the Uniswap v4 PoolManager and the forwarding of the remainder to economics.remainderTo all move exactly what they say. The token exempts nothing because it taxes nothing. No application contracts are deployed with this launch. The pool pairs SHIFT with IMD at 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 on Ethereum; pool.initialPrice is provenance only, since the deployer derives the opening price from economics.initialMarketCapWei and the supply."
+}
